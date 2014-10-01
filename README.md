@@ -3,7 +3,7 @@
 Mesure scripts parse and execution time with this simple browser proxy
 
 
-## Why should i use ScriptTimingProxy ?
+## Why should you use ScriptTimingProxy ?
 
 You're a web developer and you probably wonder what's the impact of the scripts your load on your pages.
 And it's hard to know.
@@ -18,7 +18,7 @@ And it's hard to know.
 It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://talks.desp.in/unpacking-the-black-box/](http://talks.desp.in/unpacking-the-black-box/)
 
 
-## Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them, so any HTTPS page or HTTPS ressource will be blocked.
+### Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them, so any HTTPS page or HTTPS ressource will be blocked.
 
 (If you know how to fix this, please give me your advice)
 
@@ -31,10 +31,7 @@ npm install script-timing-proxy -g
 
 ## Use
 
-1. Start the server: 
-```
-script-timing-proxy
-```
+1. Start the server: `script-timing-proxy`
 
 2. Configure your browser's proxy to `localhost:3838`
 
