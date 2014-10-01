@@ -18,6 +18,11 @@ And it's hard to know.
 It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://talks.desp.in/unpacking-the-black-box/](http://talks.desp.in/unpacking-the-black-box/)
 
 
+## Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them, so any HTTPS page or HTTPS ressource will be blocked.
+
+(If you know how to fix this, please give me your advice)
+
+
 ## Installation
 
 ```bash
@@ -39,23 +44,23 @@ script-timing-proxy
 ## Results
 
 ```
-ScriptTimingProxy [http://en.unesco.org/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js]
+ScriptTimingProxy [http://foo.com/replace/jquery/1.7/jquery.min.js]
  - parsing: 12 ms
  - execute: 9 ms
 
-ScriptTimingProxy [http://en.unesco.org/sites/default/files/js/js_b0gYJf-p7oHc4hb4753wEL1s0LGUJJfZHT_0yZ_RS-8.js]
+ScriptTimingProxy [http://foo.com/js/js_b0gYJf-p7oHc4hb4753wEL1s0LGUJJfZHT_0yZ_RS-8.js]
  - parsing: 1 ms
  - execute: 2 ms
 
-ScriptTimingProxy [http://en.unesco.org/sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery-ui.min.js]
+ScriptTimingProxy [http://foo.com/replace/ui/ui/minified/jquery-ui.min.js]
  - parsing: 17 ms
  - execute: 6 ms
 
-ScriptTimingProxy [http://en.unesco.org/sites/default/files/js/js_xnwCz-Url5H5ktFeoly_WayIlbocUn7TI0nqzJxfmdg.js]
+ScriptTimingProxy [http://foo.com/js/js_xnwCz-Url5H5ktFeoly_WayIlbocUn7TI0nqzJxfmdg.js]
  - parsing: 5 ms
  - execute: 0 ms
 
-ScriptTimingProxy [http://en.unesco.org/sites/all/libraries/leaflet/leaflet.js?ncrmfd]
+ScriptTimingProxy [http://foo.com/libraries/leaflet/leaflet.js?ncrmfd]
  - parsing: 14 ms
  - execute: 23 ms
 
