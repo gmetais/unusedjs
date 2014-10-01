@@ -1,6 +1,6 @@
 {
   "name": "ScriptTimingProxy",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Mesure scripts parse and execution time with this simple browser proxy",
   "bin": {
     "script-timing-proxy": "bin/startProxy.js"
