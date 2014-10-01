@@ -1,0 +1,33 @@
+{
+  "name": "ScriptTimingProxy",
+  "version": "1.0.0",
+  "description": "Mesure scripts parse and execution time with this simple browser proxy",
+  "bin": {
+    "script-timing-proxy": "bin/startProxy.js"
+  },
+  "main": "lib/httpProxy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmetais/ScriptTimingProxy.git"
+  },
+  "keywords": [
+    "performance",
+    "webperf",
+    "javascript",
+    "proxy"
+  ],
+  "author": "Gael Metais",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmetais/ScriptTimingProxy/issues"
+  },
+  "homepage": "https://github.com/gmetais/ScriptTimingProxy",
+  "dependencies": {
+    "connect": "^3.2.0",
+    "http-proxy": "^1.5.3",
+    "js-string-escape": "^1.0.0"
+  }
+}
