@@ -46,7 +46,10 @@ npm install script-timing-proxy -g
 ## Results
 
 For the best output, choose Chrome's console or Firebug (not FF's console).
+
 ![screenshot](doc/screenshot.png)
+
+For somes pages, you will see multiple tables: one for each iFrame.
 
 
 ## Author
