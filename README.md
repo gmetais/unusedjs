@@ -5,7 +5,7 @@ Mesure scripts parse and execution time with this simple browser proxy
 
 ## Why should you use ScriptTimingProxy ?
 
-You're a web developer and you probably wonder what's the impact of the scripts your load on your pages.
+You're a web developer and you probably wonder what's the impact of the scripts you load when the page loads.
 And it's hard to know. Even more if it's a weird minified third-party script!
 
 
@@ -13,7 +13,9 @@ And it's hard to know. Even more if it's a weird minified third-party script!
 
 1. The proxy intercepts incoming javascript files.
 2. The content of the script is injected into an eval() function, so we can measure the parse time (not exactly the same, but close).
-3. The execution time is measured too, and the results are sent to the console.
+3. The execution time is measured too.
+4. When the script defers some execution (setTimeout / domReay / page loaded), it is still measured!
+5. The results are sent to the console.
 
 It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://talks.desp.in/unpacking-the-black-box/](http://talks.desp.in/unpacking-the-black-box/)
 
