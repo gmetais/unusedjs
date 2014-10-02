@@ -12,17 +12,17 @@ And it's hard to know. Even more if it's a weird minified third-party script!
 ## How does it work ?
 
 1. The proxy intercepts incoming javascript files.
-2. The content of the script is injected into an eval() function, so we can measure the parse time (not exactly the same, but close).
-3. The execution time is measured too.
-4. When the script defers some execution (setTimeout / domReay / page loaded), it is still measured!
-5. The results are sent to the console.
+2. The content of the script is eval()ed, to measure the parse time (not exact, but close).
+3. Then the execution time is measured.
+4. The defered execution is measured too (setTimeout / domReay / page loaded).
+5. And the results are sent to the console.
 
 It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://talks.desp.in/unpacking-the-black-box/](http://talks.desp.in/unpacking-the-black-box/)
 
 
 ### Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them.
 
-*(If you know how to fix this, please give me your advice)*
+*(Help needed if you know how to fix this!)*
 
 On Firefox, i did not manage to set-up an **HTTP only** proxy, so **any HTTPS page or HTTPS ressource will be blocked**.
 It is possible with Chrome (on Mac), so HTTPS requests will just bypass the proxy and their timings won't be available.
@@ -51,7 +51,7 @@ For the best output, choose Chrome's console or Firebug (not FF's console).
 
 ![screenshot](doc/screenshot.png)
 
-For somes pages, you will see multiple tables: one for each iFrame.
+On some pages, you will see multiple tables: one for each iFrame.
 
 
 ## Author
