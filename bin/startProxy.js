@@ -1,27 +1,26 @@
 #!/usr/bin/env node
 
+var fs              = require('fs');
+var path            = require('path');
 var jsStringEscape  = require('js-string-escape');
 var HttpProxy       = require('../lib/httpProxy');
 
+
 var proxy = new HttpProxy();
 var port = 3838;
+var template = fs.readFileSync(path.resolve(__dirname, '..', 'lib', 'template.js'), 'utf8');
 
-proxy.start(port, function(bodyBuffer, $url, $index) {
+proxy.start(port, function(bodyBuffer, transferWeight, ungzipedWeight, url, index) {
+    var newBody = template;
 
     // Inspired by https://github.com/etsy/DeviceTiming
-    var head = new Buffer('window._STP = window._STP || [];\n' +
-                          'window._STP[' + $index + '] = {start: new Date().getTime()};\n' +
-                          'eval("window._STP[' + $index + '].parsed = new Date().getTime();\\n');
+    newBody = newBody.split('__INDEX__').join(index);
+    newBody = newBody.split('__URL__').join(url);
+    newBody = newBody.split('__WEIGHT__').join(transferWeight);
+    newBody = newBody.split('__UNGZIPWEIGHT__').join(ungzipedWeight);
+    newBody = newBody.split('__BODY__').join(jsStringEscape(bodyBuffer));
 
-    var body = new Buffer(jsStringEscape(bodyBuffer));
-
-    var foot = new Buffer('");\n' +
-                          'window._STP[' + $index + '].end = new Date().getTime();' +
-                          'console.log("ScriptTimingProxy [' + $url + ']\\n' +
-                          ' - parse: " + (window._STP[' + $index + '].parsed - window._STP[' + $index + '].start) + " ms\\n' +
-                          ' - execute: " + (window._STP[' + $index + '].end - window._STP[' + $index + '].parsed) + " ms");');
-
-    return Buffer.concat([head, body, foot]);
+    return new Buffer(newBody);
 });
 
 console.log('You can now configure your browser to use the proxy "localhost:3838"');
