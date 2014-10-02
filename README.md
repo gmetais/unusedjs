@@ -20,10 +20,10 @@ It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://ta
 
 ### Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them.
 
-(If you know how to fix this, please give me your advice)
+*(If you know how to fix this, please give me your advice)*
 
 On Firefox, i did not manage to set-up an **HTTP only** proxy, so **any HTTPS page or HTTPS ressource will be blocked**.
-It is possible with Chrome (on Mac), so HTTPS requests will just be ignored.
+It is possible with Chrome (on Mac), so HTTPS requests will just bypass the proxy and their timings won't be available.
 
 
 ## Installation
