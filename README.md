@@ -40,9 +40,11 @@ npm install script-timing-proxy -g
 
 2. Configure your browser's proxy to `localhost:3838`
 
-3. Open your browser's console and load the page
+3. Clear your browser cache
 
-4. The script will wait **5 seconds after the last script is loaded** before printing to the console.
+4. Open your browser's console and load the page
+
+5. The script will wait **5 seconds after the last script is loaded** before printing to the console.
 
 
 ## Results
