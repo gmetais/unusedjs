@@ -7,7 +7,8 @@ Mesure scripts parse and execution times with this simple browser proxy.
 
 You're a web developer and you probably wonder what's the impact of the scripts you load when the page loads. 
 And it's hard to know. Even more if some of them are weird minified third-party script!
-ScriptTimingProxy helps you visualize 
+
+ScriptTimingProxy helps you measure the parsing time of every script on the page, and to visualize when it is executed and for how long.
 
 
 ## How does it work ?
@@ -57,7 +58,7 @@ npm install script-timing-proxy -g
 
 2. Configure your browser's proxy to `localhost:3838`. Only set the HTTP proxy, let the HTTPS (=SSL) proxy empty.
 
-3. Clear your browser cache
+3. Clear your browser cache **<== IMPORTANT**
 
 4. Open your browser's and load the page
 
@@ -67,6 +68,8 @@ npm install script-timing-proxy -g
 
 
 ## Results
+
+Clicking on the **STP** button opens the waterfall view at the bottom of the page:
 
 ![screenshot](doc/results.png)
 
