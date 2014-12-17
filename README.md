@@ -38,9 +38,6 @@ It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://ta
 
 On an HTTPS webpage, you'll see nothing. On an HTTP page, you won't be able to see the JS files loaded over HTTPS.
 
-On Firefox, i did not manage to set-up an **HTTP only** proxy, so **any HTTPS page or HTTPS ressource will be blocked**.
-It is possible with Chrome (on Mac), so HTTPS requests will just bypass the proxy and their timings won't be available.
-
 
 
 ## Installation
