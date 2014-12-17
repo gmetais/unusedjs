@@ -54,7 +54,7 @@ npm install script-timing-proxy -g
 
 ## Use
 
-1. Start the server: `script-timing-proxy`
+1. Start the server by writing in your console: `script-timing-proxy`
 
 2. Configure your browser's proxy to `localhost:3838`. Only set the HTTP proxy, let the HTTPS (=SSL) proxy empty.
 
@@ -82,8 +82,14 @@ For each file on the waterfall:
   - execution deferred with setTimeout
 Put your mouse over any yellow part to see the duration.
 
-There is also a tooltip for each script, it is the interrogation point next to the file name:
+There is also a tooltip for each script (the question mark next to the file name):
+
 ![screenshot](doc/info.png)
+
+You will see vertical lines:
+ - the purple one is the DOM Ready (can last for many milliseconds, depending on the number of defered scripts).
+ - the dark blue line is the DOM Complete event.
+ - the light blue line is the page OnLoad (can also last a long time).
 
 
 ## Author
