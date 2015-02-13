@@ -1,14 +1,12 @@
-# UnusedJSProxy
+There are already several tools that tell you the percent of unused **CSS** on a webpage. But what about unused **JS**? Well this tool does it for JS.
 
-There are already several tools that tell you the percent of unused **CSS** on a webpage. But what about **JS**?
-
-Well this tool does the same for JS. It is a browser proxy written in NodeJS.
+It is a browser proxy written in NodeJS.
 
 
 ## How does it work ?
 
 1. The proxy intercepts incoming javascript files.
-2. The each script is instrumented on the fly by a test coverage tool ([https://github.com/gotwarlost/istanbul](Istanbul)).
+2. The each script is instrumented on the fly by a test coverage tool ([Istanbul](https://github.com/gotwarlost/istanbul)).
 3. When the script executes on the page, coverage metrics are collected in the background.
 
 
@@ -42,7 +40,7 @@ npm install unusedjs -g
 
 ## Results
 
-![screenshot](doc/output.png)
+![screenshot](https://raw.githubusercontent.com/gmetais/unusedjs/master/doc/ouput.png)
 
 
 ## Troubleshooting / FAQ
