@@ -12,7 +12,7 @@ It is a browser proxy written in NodeJS.
 
 #### Be careful, the proxy is not working with HTTPS files.
 
-**JS files loaded over HTTPS are ignored.** This is a proxy, and proxies can't intercept SSL communication.
+JS files loaded over HTTPS are ignored. Proxies can't intercept SSL communication.
 
 
 ## Installation
@@ -40,6 +40,8 @@ npm install unusedjs -g
 
 ## Results
 
+Results are displayed in the console:
+
 ![screenshot](https://raw.githubusercontent.com/gmetais/unusedjs/master/doc/ouput.png)
 
 
@@ -62,6 +64,9 @@ It should be possible, not easy but possible. Wan't to implement it with me?
 
 #### Does XX% of unused code mean I should remove it?
 It's not so easy. It can be some code that's not executed at page load, triggered by a user action for example. If it's a library (such as jQuery), removing the unused parts is pretty hazardous.
+
+#### My trouble / question is not listed here
+Just open a GitHub issue :)
 
 
 ## What's next with this tool?
