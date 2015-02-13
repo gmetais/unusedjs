@@ -1,9 +1,9 @@
 {
-  "name": "script-timing-proxy",
-  "version": "0.3.0",
-  "description": "Mesure scripts parse and execution time with this simple browser proxy",
+  "name": "unusedjs",
+  "version": "0.1.0",
+  "description": "Discover the percent of unused JS on a page with this simple browser proxy",
   "bin": {
-    "script-timing-proxy": "bin/startProxy.js"
+    "unused-js-proxy": "bin/startProxy.js"
   },
   "main": "lib/httpProxy.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gmetais/ScriptTimingProxy.git"
+    "url": "https://github.com/gmetais/unusedjs"
   },
   "keywords": [
     "performance",
@@ -22,12 +22,12 @@
   "author": "Gael Metais",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gmetais/ScriptTimingProxy/issues"
+    "url": "https://github.com/gmetais/unusedjs/issues"
   },
-  "homepage": "https://github.com/gmetais/ScriptTimingProxy",
+  "homepage": "https://github.com/gmetais/unusedjs",
   "dependencies": {
     "connect": "^3.2.0",
     "http-proxy": "^1.5.3",
-    "js-string-escape": "^1.0.0"
+    "istanbul": "^0.3.5"
   }
 }

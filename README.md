@@ -1,92 +1,77 @@
-# ScriptTimingProxy
+# UnusedJSProxy
 
-Mesure scripts parse and execution times with this simple browser proxy.
+There are already several tools that tell you the percent of unused **CSS** on a webpage. But what about **JS**?
 
-
-## Why should you use ScriptTimingProxy ?
-
-You're a web developer and you probably wonder what's the impact of the scripts you load when the page loads. 
-And it's hard to know. Even more if some of them are weird minified third-party script!
-
-ScriptTimingProxy helps you measure the parsing time of every script on the page, and to visualize when it is executed and for how long.
+Well this tool does the same for JS. It is a browser proxy written in NodeJS.
 
 
 ## How does it work ?
 
 1. The proxy intercepts incoming javascript files.
-2. The content of the script is eval()ed, to measure the parse time (not exact, but close).
-3. Then the execution time is measured.
-4. The defered execution is measured too (setTimeout / domReay / page loaded).
-5. And the results are sent to the console.
-
-It's totally inspired by a brilliant idea from Daniel Espeset (Etsy): [http://talks.desp.in/unpacking-the-black-box/](http://talks.desp.in/unpacking-the-black-box/)
+2. The each script is instrumented on the fly by a test coverage tool ([https://github.com/gotwarlost/istanbul](Istanbul)).
+3. When the script executes on the page, coverage metrics are collected in the background.
 
 
-## Browser compatibility
+#### Be careful, the proxy is not working with HTTPS files.
 
-**Chrome:** works like a charm.
-
-**Firefox:** will work soon in version 34. In FF33 you need to enable the *Resource Timing API* in the secret features flags. Open a tab with `config:about` as the url and activate the flag `dom.enable_resource_timing`.
-
-**IE:** i didn't test but it should work on IE10 or more (please send me info).
-
-**Safari:** not working.
-
-
-
-### Be careful, the proxy is not working with HTTPS files. It doesn't even tunnel them.
-
-On an HTTPS webpage, you'll see nothing. On an HTTP page, you won't be able to see the JS files loaded over HTTPS.
-
+**JS files loaded over HTTPS are ignored.** This is a proxy, and proxies can't intercept SSL communication.
 
 
 ## Installation
 
-```bash
-npm install script-timing-proxy -g
-```
+You need to open your console and write:
 
-**For use with Firefox** (dec. 2014), you need to enable the Resource Timing API in the secret features flags. Open a tab with `config:about` as the url and activate the flag `dom.enable_resource_timing`.
+```bash
+npm install unusedjs -g
+```
 
 
 ## Use
 
-1. Start the server by writing in your console: `script-timing-proxy`
+1. Start the server by writing in your console: `unused-js-proxy`
 
 2. Configure your browser's proxy to `localhost:3838`. Only set the HTTP proxy, let the HTTPS (=SSL) proxy empty.
 
 3. Clear your browser cache **<== IMPORTANT**
 
-4. Open your browser's and load the page
+4. Open your browser's and wait until the page is **fully** loaded
 
-5. You will see a yellow **STP** button in the bottom-right corner of the page. Click it.
+5. Open your browser's console and write `_unusedjs.report()`
 
-![screenshot](doc/button.png)
 
 
 ## Results
 
-Clicking on the **STP** button opens the waterfall view at the bottom of the page:
+![screenshot](doc/output.png)
 
-![screenshot](doc/results.png)
 
-For each file on the waterfall:
-- the green part is the time to download the file
-- the yellow parts are the execution times ScriptTimingProxy was able to intercept:
-  - initial execution of the file
-  - execution deferred to DOM Ready
-  - execution deferred to DOM Complete
-  - execution deferred with setTimeout
-Put your mouse over any yellow part to see the duration.
+## Troubleshooting / FAQ
 
-There is also a tooltip for each script (the question mark next to the file name):
+#### _UnusedCSS is not defined
+That means no JS file was instrumented by the proxy. Make sure the page you are testing is not HTTPS. Make sure the page loads at least 1 script and it's not over HTTPS. Make sure the proxy is still running and is not displaying errors. Then make sure you configured correctly your browser's proxy.
 
-![screenshot](doc/info.png)
+#### The proxy fails with an error
+I did not debug this error yet. Can you?
 
-You will see vertical lines:
- - the purple one is the DOM Ready (can last for many milliseconds, depending on the number of defered scripts).
- - the dark blue line is the DOM Complete event.
- - the light blue line is the page OnLoad (can also last a long time).
+#### The console doesn't display the colors
+Your browser may not be compatible with console.log styling.
+
+#### The page loads slower
+Yes. The JS files are instrumented by the proxy and this step is slow. And it's not parallelized. Don't forget to kill the tool when you're done, otherwise you might experience a sloooooow surfing session.
+
+#### I'd like to visualize which parts of the scripts are unused
+It should be possible, not easy but possible. Wan't to implement it with me?
+
+#### Does XX% of unused code mean I should remove it?
+It's not so easy. It can be some code that's not executed at page load, triggered by a user action for example. If it's a library (such as jQuery), removing the unused parts is pretty hazardous.
+
+
+## What's next with this tool?
+
+For the moment it's just a quick proof of concept. Tell me if the tool is ineresting, because here are some ideas for the future:
+- automatically make the measures on domContentLoaded, domContentLoadedEnd and domComplete (can help defer scripts after the critical path).
+- add a way to visualize which parts of the scripts are unused.
+- automatic launch in PhantomJS configured with the proxy.
 
 
 ## Author
