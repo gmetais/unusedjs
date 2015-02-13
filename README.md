@@ -44,6 +44,8 @@ Results are displayed in the console:
 
 ![screenshot](https://raw.githubusercontent.com/gmetais/unusedjs/master/doc/ouput.png)
 
+Why "(for the moment)"? Because the score might change if some more JS gets executed in the page.
+
 
 ## Troubleshooting / FAQ
 
@@ -58,6 +60,9 @@ Your browser may not be compatible with console.log styling.
 
 #### The page loads slower
 Yes. The JS files are instrumented by the proxy and this step is slow. And it's not parallelized. Don't forget to kill the tool when you're done, otherwise you might experience a sloooooow surfing session.
+
+#### Inlined scripts are not analyzed
+Sorry.
 
 #### I'd like to visualize which parts of the scripts are unused
 It should be possible, not easy but possible. Wan't to implement it with me?
