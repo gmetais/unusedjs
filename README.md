@@ -49,7 +49,7 @@ Why "(for the moment)"? Because the score might change if some more JS gets exec
 
 ## Troubleshooting / FAQ
 
-#### _UnusedCSS is not defined
+#### _unusedjs is not defined
 That means no JS file was instrumented by the proxy. Make sure the page you are testing is not HTTPS. Make sure the page loads at least 1 script and it's not over HTTPS. Make sure the proxy is still running and is not displaying errors. Then make sure you configured correctly your browser's proxy.
 
 #### The proxy fails with an error
