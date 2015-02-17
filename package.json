@@ -1,6 +1,6 @@
 {
   "name": "unusedjs",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Discover the percent of unused JS on a page with this simple browser proxy",
   "bin": {
     "unused-js-proxy": "bin/startProxy.js"

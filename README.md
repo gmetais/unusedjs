@@ -54,6 +54,9 @@ _unusedjs.file(<file number>)
 ```
 There are stille some bugs with very large files, especially when minified on one very long line. **Best displayed on Chrome or Safari.**
 
+![screenshot](https://raw.githubusercontent.com/gmetais/unusedjs/master/doc/file.png)
+
+
 
 ## Troubleshooting / FAQ
 
