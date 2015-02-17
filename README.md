@@ -47,7 +47,7 @@ Results are displayed in the console:
 Why "(for the moment)"? Because the score might change if some more JS gets executed in the page.
 
 
-## Inspect what code is unused for one file
+## Inspect what code is unused for one file (experimental)
 
 ```js
 _unusedjs.file(<file number>)
