@@ -3,9 +3,12 @@
 var fs              = require('fs');
 var path            = require('path');
 var istanbul        = require('istanbul');
-var instrumenter    = new istanbul.Instrumenter();
 var HttpProxy       = require('../lib/httpProxy');
 
+var instrumenter    = new istanbul.Instrumenter({
+    embedSource: true,
+    noAutoWrap: true
+});
 
 var proxy = new HttpProxy();
 var port = 3838;

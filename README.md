@@ -47,6 +47,14 @@ Results are displayed in the console:
 Why "(for the moment)"? Because the score might change if some more JS gets executed in the page.
 
 
+## Inspect what code is unused for one file
+
+```js
+_unusedjs.file(<file number>)
+```
+There are stille some bugs with very large files, especially when minified on one very long line. **Best displayed on Chrome or Safari.**
+
+
 ## Troubleshooting / FAQ
 
 #### _unusedjs is not defined
@@ -78,7 +86,6 @@ Just open a GitHub issue :)
 
 For the moment it's just a quick proof of concept. Tell me if the tool is ineresting, because here are some ideas for the future:
 - automatically make the measures on domContentLoaded, domContentLoadedEnd and domComplete (can help defer scripts after the critical path).
-- add a way to visualize which parts of the scripts are unused.
 - automatic launch in PhantomJS configured with the proxy.
 
 
