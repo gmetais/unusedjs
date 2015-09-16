@@ -6,7 +6,7 @@ It is a browser proxy written in NodeJS.
 ## How does it work ?
 
 1. The proxy intercepts incoming javascript files.
-2. The each script is instrumented on the fly by a test coverage tool ([Istanbul](https://github.com/gotwarlost/istanbul)).
+2. Each script is instrumented on the fly by a test coverage tool ([Istanbul](https://github.com/gotwarlost/istanbul)).
 3. When the script executes on the page, coverage metrics are collected in the background.
 
 
