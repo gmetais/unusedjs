@@ -84,10 +84,14 @@ Just open a GitHub issue :)
 
 ## What's next with this tool?
 
-For the moment it's just a quick proof of concept. Tell me if the tool is ineresting, because here are some ideas for the future:
+For the moment it's just a quick proof of concept. Tell me if the tool is interesting, because here are some ideas for the future:
 - automatically make the measures on domContentLoaded, domContentLoadedEnd and domComplete (can help defer scripts after the critical path).
 - automatic launch in PhantomJS configured with the proxy.
+- a service worker that does this automatically (on localhost).
 
 
 ## Author
-Gaël Métais. I'm a webperf freelance based in Paris. If you understand French, you can visit [my website](http://www.gaelmetais.com).
+
+Gaël Métais. I'm a webperf freelance. Follow me on Twitter [@gaelmetais](https://twitter.com/gaelmetais), I tweet mostly about Web Performances.
+
+If you understand French, you can visit [my website](http://www.gaelmetais.com) (will be soon in English too).
